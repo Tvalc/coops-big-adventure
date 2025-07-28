@@ -1,0 +1,159 @@
+/* Core Reset and Layout */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(to bottom, #b6e0fe, #4682b4 80%);
+  min-height: 100vh;
+}
+#gameShell {
+  box-shadow: 0 6px 32px rgba(45, 75, 110, 0.12);
+  background: rgba(255,255,255,0.85);
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 32px;
+}
+
+#canvas-container {
+  position: relative;
+  width: 480px;
+  height: 320px;
+  background: transparent;
+}
+
+#game-canvas {
+  border-radius: 12px;
+  box-shadow: 0 0 20px #4079b4, 0 2px 8px #1e3550;
+  background: linear-gradient(180deg, #e7f5ff 0%, #b9e3f5 100%);
+  display: block;
+}
+
+/* HUD Styling */
+.hud-bar {
+  height: 18px;
+  border-radius: 9px;
+  background: #d0e7fa;
+  box-shadow: 0 1px 4px #264d7e22;
+  margin-bottom: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.hud-bar-inner {
+  height: 100%;
+  border-radius: 9px 0 0 9px;
+  transition: width 0.2s, background 0.2s;
+}
+.hud-bar-label {
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  color: #143260;
+  font-size: 13px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+/* Skill & Inventory Buttons */
+.hud-btn {
+  background: linear-gradient(90deg, #88cfff, #b2eaff);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px #4682b499;
+  font-weight: bold;
+  color: #145086;
+  padding: 8px 18px;
+  margin: 0 6px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.hud-btn:active {
+  background: linear-gradient(90deg, #7bbfe3, #a4d8e6);
+  box-shadow: 0 0 6px #1d5d8c88;
+}
+.hud-btn:focus {
+  outline: 2px solid #337ab7;
+}
+
+/* Inventory Modal */
+.inventory-modal {
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  transform: translate(-50%, 0);
+  background: #f3faff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px #0003;
+  padding: 24px 32px;
+  z-index: 20;
+  min-width: 200px;
+  text-align: center;
+}
+.inventory-modal h3 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #22608c;
+}
+.inventory-item {
+  margin: 12px 0;
+  border: 2px solid #7fd2f5;
+  border-radius: 8px;
+  padding: 8px 12px;
+  background: #e9faff;
+  color: #166588;
+  font-size: 15px;
+}
+
+/* Touch Controls Overlay (for mobile) */
+#touch-controls {
+  position: absolute;
+  left: 0; top: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+.touch-joystick {
+  position: absolute;
+  left: 20px; bottom: 20px;
+  width: 80px; height: 80px;
+  pointer-events: all;
+}
+.touch-joystick-base {
+  width: 80px; height: 80px;
+  background: radial-gradient(circle at 40px 40px, #bfe8ff 80%, #6ab6e4 100%);
+  border-radius: 50%;
+  opacity: 0.65;
+  position: absolute;
+}
+.touch-joystick-thumb {
+  width: 36px; height: 36px;
+  background: radial-gradient(circle at 18px 18px, #81cfff 80%, #247ba0 100%);
+  border-radius: 50%;
+  position: absolute;
+  left: 22px; top: 22px;
+  box-shadow: 0 2px 8px #3a81c6aa;
+  transition: left 0.08s, top 0.08s;
+  opacity: 0.8;
+}
+.touch-attack-btn {
+  position: absolute;
+  right: 18px; bottom: 24px;
+  width: 60px; height: 60px;
+  background: radial-gradient(circle at 30px 30px, #d1f6ff, #4ca6d0 90%);
+  border-radius: 50%;
+  box-shadow: 0 1px 8px #185f8888;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; color: #0b314b;
+  pointer-events: all;
+  user-select: none;
+  cursor: pointer;
+  opacity: 0.92;
+  transition: background 0.12s;
+}
+.touch-attack-btn:active {
+  background: radial-gradient(circle at 30px 30px, #b0e6fa, #307c9c 90%);
+}
+@media (max-width: 600px) {
+  #canvas-container { width: 100vw; height: 66vw; max-width: 100vw; max-height: 66vw; }
+  #game-canvas { width: 100vw !important; height: 66vw !important; }
+}
