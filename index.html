@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coop: Defender of the Frozen Realm</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-gradient-to-b from-blue-100 to-blue-400 min-h-screen flex flex-col items-center">
+  <div id="gameShell" class="w-full max-w-2xl mx-auto mt-4 flex flex-col items-center">
+    <!-- React UI will mount here -->
+    <div id="hud-root"></div>
+    <!-- Canvas Game Scene -->
+    <div id="canvas-container" class="relative mt-4">
+      <canvas id="game-canvas" width="480" height="320"></canvas>
+      <!-- Touch controls overlay -->
+      <div id="touch-controls"></div>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
